@@ -1,0 +1,45 @@
+{
+  "name": "dujiaoka-medusa-frontend",
+  "version": "1.0.0",
+  "description": "獨角數卡 + Medusa 前端界面",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "next": "^14.0.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "@medusajs/ui": "^2.4.1",
+    "@medusajs/icons": "^1.2.1",
+    "axios": "^1.6.2",
+    "clsx": "^2.0.0",
+    "tailwindcss": "^3.3.6",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.32",
+    "lucide-react": "^0.294.0",
+    "react-hot-toast": "^2.4.1",
+    "zustand": "^4.4.7",
+    "react-query": "^3.39.3",
+    "framer-motion": "^10.16.16",
+    "qrcode.react": "^3.1.0",
+    "copy-to-clipboard": "^3.3.3",
+    "moment": "^2.29.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.4",
+    "@types/react": "^18.2.43",
+    "@types/react-dom": "^18.2.17",
+    "typescript": "^5.3.3",
+    "eslint": "^8.55.0",
+    "eslint-config-next": "^14.0.3",
+    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/typography": "^0.5.10"
+  },
+  "keywords": ["nextjs", "medusa", "dujiaoka", "ecommerce"],
+  "author": "Your Name",
+  "license": "MIT"
+} 

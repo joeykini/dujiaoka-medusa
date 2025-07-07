@@ -1,0 +1,27 @@
+{
+  "name": "dujiaoka-medusa",
+  "version": "1.0.0",
+  "description": "獨角數卡 + Medusa 整合方案",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:bridge\"",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:bridge": "cd bridge-api && npm run dev",
+    "build": "npm run build:frontend && npm run build:bridge",
+    "build:frontend": "cd frontend && npm run build",
+    "build:bridge": "cd bridge-api && npm run build",
+    "start": "concurrently \"npm run start:frontend\" \"npm run start:bridge\"",
+    "start:frontend": "cd frontend && npm run start",
+    "start:bridge": "cd bridge-api && npm run start",
+    "install:all": "npm install && cd frontend && npm install && cd ../bridge-api && npm install"
+  },
+  "keywords": ["dujiaoka", "medusa", "ecommerce", "nodejs", "php"],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+} 

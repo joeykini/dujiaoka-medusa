@@ -1,0 +1,29 @@
+{
+  "name": "dujiaoka-medusa-bridge",
+  "version": "1.0.0",
+  "description": "獨角數卡與Medusa前端的API橋接層",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js",
+    "build": "echo 'Bridge API built successfully'"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "axios": "^1.6.2",
+    "mysql2": "^3.6.5",
+    "redis": "^4.6.10",
+    "dotenv": "^16.3.1",
+    "body-parser": "^1.20.2",
+    "jsonwebtoken": "^9.0.2",
+    "crypto": "^1.0.1",
+    "moment": "^2.29.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  },
+  "keywords": ["api", "bridge", "dujiaoka", "medusa"],
+  "author": "Your Name",
+  "license": "MIT"
+} 
