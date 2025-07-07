@@ -72,21 +72,23 @@ export default function Home() {
 
   return (
     <Layout title="首頁 - 獨角數卡商城">
-      <div className="space-y-8">
+      <div>
         {/* 歡迎橫幅 */}
-        <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg p-8 text-center">
-          <h1 className="text-4xl font-bold mb-4">歡迎來到獨角數卡商城</h1>
-          <p className="text-xl opacity-90">
+        <div className="hero-banner">
+          <h1 className="hero-title">歡迎來到獨角數卡商城</h1>
+          <p className="hero-subtitle">
             安全、快速、便捷的數位商品購買平台
           </p>
         </div>
 
         {/* 搜索欄 */}
-        <SearchBar onSearch={handleSearch} />
+        <div className="search-container">
+          <SearchBar onSearch={handleSearch} />
+        </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+        <div className="layout-grid">
           {/* 側邊欄 - 分類篩選 */}
-          <div className="lg:col-span-1">
+          <div className="sidebar">
             <CategoryFilter
               categories={categories}
               selectedCategory={selectedCategory}
@@ -95,18 +97,18 @@ export default function Home() {
           </div>
 
           {/* 主要內容 - 商品列表 */}
-          <div className="lg:col-span-3">
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-semibold text-gray-900">
+          <div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
+              <h2 style={{ fontSize: '1.5rem', fontWeight: '600', color: '#1a202c' }}>
                 熱門商品
               </h2>
-              <span className="text-gray-500">
+              <span style={{ color: '#6b7280' }}>
                 共 {filteredProducts.length} 件商品
               </span>
             </div>
 
             {filteredProducts.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+              <div className="products-grid">
                 {filteredProducts.map((product) => (
                   <ProductCard
                     key={product.id}
@@ -116,8 +118,8 @@ export default function Home() {
                 ))}
               </div>
             ) : (
-              <div className="text-center py-12">
-                <div className="text-gray-400 text-lg">
+              <div style={{ textAlign: 'center', padding: '3rem 0' }}>
+                <div style={{ color: '#9ca3af', fontSize: '1.125rem' }}>
                   {searchQuery ? '沒有找到匹配的商品' : '暫無商品'}
                 </div>
               </div>
@@ -126,40 +128,34 @@ export default function Home() {
         </div>
 
         {/* 特色功能 */}
-        <div className="bg-white rounded-lg shadow-sm p-8">
-          <h3 className="text-2xl font-semibold text-gray-900 mb-6 text-center">
+        <div className="features-section">
+          <h3 className="features-title">
             為什麼選擇我們？
           </h3>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                </svg>
+          <div className="features-grid">
+            <div className="feature-item">
+              <div className="feature-icon blue">
+                🔒
               </div>
-              <h4 className="text-lg font-semibold mb-2">安全可靠</h4>
-              <p className="text-gray-600">採用最高級別的安全加密技術，保障您的交易安全</p>
+              <h4 className="feature-title">安全可靠</h4>
+              <p className="feature-description">採用最高級別的安全加密技術，保障您的交易安全</p>
             </div>
             
-            <div className="text-center">
-              <div className="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
+            <div className="feature-item">
+              <div className="feature-icon green">
+                ⚡
               </div>
-              <h4 className="text-lg font-semibold mb-2">極速交付</h4>
-              <p className="text-gray-600">自動化處理系統，購買後立即發貨，無需等待</p>
+              <h4 className="feature-title">極速交付</h4>
+              <p className="feature-description">自動化處理系統，購買後立即發貨，無需等待</p>
             </div>
             
-            <div className="text-center">
-              <div className="bg-purple-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M12 12h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
+            <div className="feature-item">
+              <div className="feature-icon purple">
+                🎧
               </div>
-              <h4 className="text-lg font-semibold mb-2">24/7 客服</h4>
-              <p className="text-gray-600">全天候客戶服務，隨時為您解答疑問</p>
+              <h4 className="feature-title">24/7 客服</h4>
+              <p className="feature-description">全天候客戶服務，隨時為您解答疑問</p>
             </div>
           </div>
         </div>

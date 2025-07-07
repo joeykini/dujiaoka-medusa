@@ -2,22 +2,19 @@ import React, { useState } from 'react';
 
 interface SearchBarProps {
   onSearch: (query: string) => void;
-  placeholder?: string;
 }
 
-const SearchBar: React.FC<SearchBarProps> = ({ 
-  onSearch, 
-  placeholder = '搜索商品...' 
-}) => {
-  const [searchQuery, setSearchQuery] = useState('');
+const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
+  const [query, setQuery] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    onSearch(searchQuery.trim());
+    onSearch(query);
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(e.target.value);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setQuery(e.target.value);
+    onSearch(e.target.value);
   };
 
   return (
@@ -26,10 +23,10 @@ const SearchBar: React.FC<SearchBarProps> = ({
         <div className="flex-1">
           <input
             type="text"
-            value={searchQuery}
-            onChange={handleInputChange}
-            placeholder={placeholder}
-            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            placeholder="搜索商品..."
+            value={query}
+            onChange={handleChange}
+            className="search-bar"
           />
         </div>
         
